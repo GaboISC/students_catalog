@@ -39,6 +39,7 @@ describe Student do
 	      	post.save
 	      	expect(post.errors.full_messages).to eq(["Birthdate can't be blank"])
 	    end
+	   
 	    it "validates presence of control_number" do
 	      	post = Student.new(first_name: "Gabo", last_name: "Diaz", birthdate: "11/11/1993", semester: "9")
 	      	post.save
@@ -50,7 +51,26 @@ describe Student do
 	      	post.save
 	      	expect(post.errors.full_messages).to eq(["Semester can't be blank"])
 	    end
+	   
 	    it "validates uniqueness of first_name" do
+      		Student.create(
+      			first_name: "Gabo",
+				last_name: "Diaz",
+				birthdate: "11/11/1993",
+		    	control_number:"11460258",
+		    	semester: "9" )
+
+      		post = Student.new(
+      			first_name: "Gabo",
+				last_name: "Diaz",
+				birthdate: "11/11/1993",
+		    	control_number:"11460258",
+		    	semester: "9" )
+      		post.save
+      		expect(post.errors.full_messages).to eq(["First name has already been taken"])
+    	end
+
+    	it "validates uniqueness of first_name" do
       		Student.create(
       			first_name: "Gabo",
 				last_name: "Diaz",
