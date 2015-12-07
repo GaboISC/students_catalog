@@ -4,9 +4,9 @@ class StudentsController < ApplicationController
     @students = Student.all
   end
 
-  def show
-    @student = Student.find(params[:id])
-  end
+  #def show
+    #@student = Student.find(params[:id])
+  #end
 
   def new
     @student = Student.new
@@ -30,7 +30,7 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
 
     if @student.update(student_params)
-      redirect_to @student, notice: 'Student was successfully updated.'
+      redirect_to root_path, notice: 'Student was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,7 +39,7 @@ class StudentsController < ApplicationController
   def destroy
     @student = Student.find(params[:id])
     @student.destroy
-    redirect_to students_url, notice: 'Student was successfully destroyed.'
+    redirect_to root_path, notice: 'Student was successfully destroyed.'
   end
 
   private
