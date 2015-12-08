@@ -48,7 +48,7 @@ feature "Create student" do
     		expect(page).to have_content "Semester can't be blank"
 		
 	end
-	scenario "First name" do
+	scenario "Dato invalido" do
 		visit "/teachers/sign_in"
 
 		click_link "Sign up"
