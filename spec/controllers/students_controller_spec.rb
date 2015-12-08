@@ -5,7 +5,7 @@ describe StudentsController do
 describe "log" do 
 	it "also" do
 		teacher = FactoryGirl.create(:teacher)
-		login_as(teacher, :scope => :teacher)
+		sign_in  :teacher,teacher #eacher, :scope => :teacher)
 	end
 end
 
