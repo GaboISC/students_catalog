@@ -1,5 +1,8 @@
 class StudentsController < ApplicationController
-  
+    rescue_from ActiveRecord::RecordNotFound do |e|
+    render text: "The page you're looking for doesn't exists",
+      status: 404
+  end
   def index
     @students = Student.all
   end

@@ -4,4 +4,5 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :authenticate_teacher!
+ # before { login_as FactoryGirl.create(:teacher) }
 end
