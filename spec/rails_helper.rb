@@ -29,7 +29,7 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-
+config.include Devise:TestHelpers, :type => :controlers 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
 
